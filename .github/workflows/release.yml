@@ -22,9 +22,9 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-          RELEASE_VERSION: ${{ github.event.head_commit.message }}  #${{ steps.set_tag_env.outputs.tag }}
+#           RELEASE_VERSION: ${{ steps.set_tag_env.outputs.tag }}
         with:
-          tag_name: $RELEASE_VERSION
-          release_name: $RELEASE_VERSION
+          tag_name: ${{ github.event.head_commit.message }}
+          release_name: ${{ github.event.head_commit.message }}
           draft: false
           prerelease: false
